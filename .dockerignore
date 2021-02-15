@@ -1,0 +1,9 @@
+/api/node_modules
+/api/gulpfile.js
+/api/README.md
+/api/server.bundle.js
+/api/webpack.config.js
+
+/my-app/build
+/my-app/node_modules
+/my-app/README.md

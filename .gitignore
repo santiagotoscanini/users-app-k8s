@@ -1,0 +1,6 @@
+/api/node_modules/
+/api/server.bundle.js
+
+/my-app/node_modules
+/my-app/build
+/.idea/

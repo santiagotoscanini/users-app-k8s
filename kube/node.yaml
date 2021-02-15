@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-api
+  template:
+    metadata:
+      labels:
+        app: node-api
+    spec:
+      containers:
+        - name: node-api
+          image: santiagotoscanini/node-api:0.0.2
+          ports:
+            - containerPort: 3080
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongo:27017/users
+          imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: users-api
+spec:
+  selector:
+    app: node-api
+  ports:
+    - port: 4000
+      targetPort: 3080
+  type: LoadBalancer
